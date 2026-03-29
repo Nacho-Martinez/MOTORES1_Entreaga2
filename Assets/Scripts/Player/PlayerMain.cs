@@ -6,6 +6,7 @@ public class PlayerMain : MonoBehaviour
     
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
+    [field: SerializeField] public LayerMask filter { get; private set; }
 
     private void Awake()
     {

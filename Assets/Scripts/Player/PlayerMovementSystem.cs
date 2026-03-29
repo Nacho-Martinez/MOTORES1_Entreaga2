@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovementSystem : PlayerSystem
 {
+    private static readonly int Running = Animator.StringToHash("running");
+    
     [SerializeField] private float movementForce;
     [SerializeField] private float jumpForce;
-    [SerializeField] private LayerMask filter;
+    
 
     private float hInput;
     protected override void Awake()
@@ -20,12 +22,13 @@ public class PlayerMovementSystem : PlayerSystem
         Rotate();
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(Physics2D.Raycast(transform.localPosition, Vector2.down, transform.localScale.y + 0.5f,filter))
+            if(Physics2D.Raycast(transform.localPosition, Vector2.down, transform.localScale.y + 0.5f,main.filter))
             {
                 
                 main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
+        main.Anim.SetBool(Running,hInput != 0);
         
     }
 
