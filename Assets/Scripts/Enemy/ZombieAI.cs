@@ -1,11 +1,13 @@
 using System;
+using Enemy;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ZombieAI : MonoBehaviour
+public class ZombieAI : EnemySystem
 {
-   [SerializeField] private BaseSightSense sightModulo;
+   private static readonly int Running = Animator.StringToHash("running");
+
    [SerializeField] private float chasevelocity = 3f;
 
    [Header("Patrol Stats")]
@@ -13,22 +15,20 @@ public class ZombieAI : MonoBehaviour
    [SerializeField] private float patrolRadius = 3f;
    [SerializeField] private float changeDirDistance = 0.3f;
    [SerializeField] private float maxPatrolTime = 10f;
-
-
+   
    private Vector2 currentPatrolPoint;
-   private Rigidbody2D rb;
    private Transform objective;
    private float patrolStartTime;
 
-   private void Awake()
+   
+   private void Start()
    {
-      rb = GetComponent<Rigidbody2D>();
       GenerateNewPatrolPoint();
    }
 
    private void Update()
    {
-      objective = sightModulo.DectectObjetive();
+      objective = main.sightModulo.DectectObjetive();
       if (objective == null)
       {
          float timePatroling = Time.time - patrolStartTime;
@@ -55,7 +55,8 @@ public class ZombieAI : MonoBehaviour
 
    private void Patrol()
    {
-      float distancex = Mathf.Abs(rb.position.x - currentPatrolPoint.x);
+      main.Anim.SetBool(Running,false);
+      float distancex = Mathf.Abs(main.Rb.position.x - currentPatrolPoint.x);
       
       if (distancex < changeDirDistance)
       {
@@ -63,7 +64,7 @@ public class ZombieAI : MonoBehaviour
       }
 
       float directionx = 0;
-      if (currentPatrolPoint.x > rb.position.x)
+      if (currentPatrolPoint.x > main.Rb.position.x)
       {
          directionx = 1f;
       }
@@ -72,14 +73,15 @@ public class ZombieAI : MonoBehaviour
          directionx = -1f;
       }
 
-      rb.linearVelocity = new Vector2(directionx * patrolSpeed, rb.linearVelocity.y);
+      main.Rb.linearVelocity = new Vector2(directionx * patrolSpeed, main.Rb.linearVelocity.y);
       Rotate(currentPatrolPoint.x);
    }
 
    private void Chase(Transform objetive)
    {
+      main.Anim.SetBool(Running,true);
       float direccionX = 0;
-      if (objetive.position.x > rb.position.x)
+      if (objetive.position.x > main.Rb.position.x)
       {
          direccionX = 1f;
       }
@@ -88,14 +90,14 @@ public class ZombieAI : MonoBehaviour
          direccionX = -1f;
       }
 
-      rb.linearVelocity = new Vector2(direccionX * chasevelocity, rb.linearVelocity.y);
+      main.Rb.linearVelocity = new Vector2(direccionX * chasevelocity, main.Rb.linearVelocity.y);
       Rotate(objetive.position.x);
    }
 
    private void GenerateNewPatrolPoint()
    {
       Vector2 randomOffset = Random.insideUnitCircle * patrolRadius;
-      currentPatrolPoint = rb.position + randomOffset;
+      currentPatrolPoint = main.Rb.position + randomOffset;
       patrolStartTime = Time.time;
    }
 

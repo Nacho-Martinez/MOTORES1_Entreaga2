@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterHealthSystem : MonoBehaviour,IDamageable
 {
-    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float maxHealth = 10;
     protected float currentHealth;
     
     private void Awake()
@@ -20,9 +20,6 @@ public class CharacterHealthSystem : MonoBehaviour,IDamageable
     public virtual void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            //Logica de animacion etc etc
-        }
+        
     }
 }
