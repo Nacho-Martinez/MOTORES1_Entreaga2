@@ -19,18 +19,13 @@ namespace Player
         }
         public override void TakeDamage(float damage)
         {
-            Debug.Log($"Vida: {maxHealth}");
-            Debug.Log($"Ha recibido {damage}");
-            Debug.Log($"Vida tras ataque {currentHealth}");
             base.TakeDamage(damage);
             EventManager.Instance.PlayerDamage(currentHealth,maxHealth);
             
             if (currentHealth <= 0)
             {
-                Debug.Log("Ha entrado en el if de muerte ");
                 movement.enabled = false;
                 attack.enabled = false;
-                
                 StartCoroutine(WaitingForDead());
             }
         }

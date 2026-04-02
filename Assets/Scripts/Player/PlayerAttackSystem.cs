@@ -38,7 +38,7 @@ namespace Player
                 shooting = Input.GetMouseButton(0);
             }
 
-            if (shooting && Time.time >= nextFireTime)
+            if (shooting && Time.time >= nextFireTime && !Dialogue.Instance.IsDialogueActive)
             {
                 Shoot();
                 nextFireTime = Time.time + fireRate;
