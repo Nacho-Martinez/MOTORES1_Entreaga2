@@ -15,6 +15,7 @@ namespace Enemy
             Rb = GetComponent<Rigidbody2D>();
             Anim = GetComponent<Animator>();
             
+
         }
     }
 }

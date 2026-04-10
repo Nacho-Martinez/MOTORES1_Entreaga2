@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
-
-    public class DialogueAndTp : ActivateAndAssingDialogue
-    {
+public class DialogueAndTp : ActivateAndAssingDialogue
+{
+    [SerializeField] private string levelTP;
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
@@ -13,6 +15,11 @@
 
         private void Tp()
         {
-            Debug.Log("Dialogo acabado haciendo Tp.......");
+            SceneManager.LoadScene(levelTP);
+        }
+
+        private void OnDisable()
+        {
+            Dialogue.Instance.onDialogueComplete -= Tp;
         }
     }

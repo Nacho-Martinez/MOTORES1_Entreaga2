@@ -2,6 +2,7 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
@@ -19,30 +20,72 @@ namespace Player
         private bool automaticShoot = false;
 
         private float nextFireTime = 0f;
-        
+        private bool isHoldingTrigger;
 
-        private void Update()
+        protected override void Awake()
         {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                automaticShoot = !automaticShoot;
-            }
+            base.Awake();
+        }
 
-            bool shooting = false;
+        private void OnEnable()
+        {
+            
+            main.Controls.Player.ToggleShoot.performed += ToggleShoot;
+            main.Controls.Player.Shoot.performed += ManualShoot;;
+            main.Controls.Player.Shoot.started +=  NotShooting;
+            main.Controls.Player.Shoot.canceled += SetShooting;
+        }
+
+        private void SetShooting(InputAction.CallbackContext context)
+        {
+            isHoldingTrigger = false;
+        }
+
+        private void NotShooting(InputAction.CallbackContext context)
+        {
+            isHoldingTrigger = true;
+        }
+
+        private void ManualShoot(InputAction.CallbackContext context)
+        {
             if (!automaticShoot)
             {
-                shooting = Input.GetMouseButtonDown(0);
+                TryManualShoot();
             }
-            else if (automaticShoot)
-            {
-                shooting = Input.GetMouseButton(0);
-            }
+        }
 
-            if (shooting && Time.time >= nextFireTime && !Dialogue.Instance.IsDialogueActive)
+        private void ToggleShoot(InputAction.CallbackContext context)
+        {
+             automaticShoot = !automaticShoot;
+        }
+
+        private void OnDisable()
+        {
+            main.Controls.Player.ToggleShoot.performed -= ToggleShoot;
+            main.Controls.Player.Shoot.performed -= ManualShoot;;
+            main.Controls.Player.Shoot.started -=  NotShooting;
+            main.Controls.Player.Shoot.canceled -= SetShooting;
+        }
+
+        private void TryManualShoot()
+        {
+            if (Time.time >= nextFireTime)
             {
                 Shoot();
                 nextFireTime = Time.time + fireRate;
             }
+        }
+
+        private void Update()
+        {
+           if(isHoldingTrigger && automaticShoot)
+           {
+               if (Time.time >= nextFireTime)
+               {
+                   Shoot();
+                   nextFireTime = Time.time + fireRate;
+               }
+           }
         }
 
         private void Shoot()
@@ -79,4 +122,5 @@ namespace Player
            
         }
     }
-}
+    
+    }

@@ -1,3 +1,4 @@
+using System;
 using Managers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,8 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
-
-    private void Start()
+    
+    private void OnEnable()
     {
         EventManager.Instance.OnPlayerDamage += UpdateHealthBar;
     }

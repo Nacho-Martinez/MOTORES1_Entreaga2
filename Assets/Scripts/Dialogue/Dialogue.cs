@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dialogue : MonoBehaviour
 {
@@ -13,11 +14,16 @@ public class Dialogue : MonoBehaviour
     [SerializeField]private float textSpeed;
     private int index;
     public Action onDialogueComplete;
+    private MyInputActions actions;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            if (actions == null)
+            {
+                actions = new MyInputActions();
+            }
             gameObject.SetActive(false);
         }
         else
@@ -25,28 +31,43 @@ public class Dialogue : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (actions != null)
+        {
+            actions.Disable();
+            actions = null;
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         textComponent.text = string.Empty;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetMouseButtonDown(0))
+        actions.Ui.Interact.performed += ContinueLine;
+    }
+    private void OnDisable()
+    {
+        actions.Ui.Interact.performed -= ContinueLine;
+        actions.Disable();
+    }
+    
+    private void ContinueLine(InputAction.CallbackContext context)
+    {
+        if (textComponent.text == lines[index])
         {
-            if (textComponent.text == lines[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
+            NextLine();
         }
-        
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = lines[index];
+        }
     }
 
     public void StartDialogue(string[] newLines)
@@ -57,6 +78,8 @@ public class Dialogue : MonoBehaviour
         textComponent.text = string.Empty;
         lines = newLines;
         gameObject.SetActive(true);
+        actions.Player.Disable();
+        actions.Ui.Enable();
         StartCoroutine(TypeLine());
     }
 
@@ -87,6 +110,8 @@ public class Dialogue : MonoBehaviour
             onDialogueComplete?.Invoke(); 
             onDialogueComplete = null;
             gameObject.SetActive(false);
+            actions.Player.Enable();
+            actions.Ui.Disable();
         }
     }
 }

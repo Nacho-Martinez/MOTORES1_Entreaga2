@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementSystem : PlayerSystem
 {
@@ -8,37 +9,61 @@ public class PlayerMovementSystem : PlayerSystem
     
     [SerializeField] private float movementForce;
     [SerializeField] private float jumpForce;
-    
-
-    private float hInput;
+    private Vector2 moveInput;
     protected override void Awake()
     {
         base.Awake();
     }
 
+    private void OnEnable()
+    {
+        main.Controls.Player.Move.performed +=  OnMove;
+        main.Controls.Player.Move.canceled +=  OnStopMove;
+        main.Controls.Player.Jump.performed += Jump;
+        
+    }
+
+    private void OnStopMove(InputAction.CallbackContext context)
+    {
+         moveInput = Vector2.zero;
+    }
+
+    private void OnMove(InputAction.CallbackContext ctx)
+    {
+         moveInput = ctx.ReadValue<Vector2>();
+    }
+
+    private void OnDisable()
+    {
+        main.Controls.Player.Move.performed -=  OnMove;
+        main.Controls.Player.Move.canceled -=  OnStopMove;
+        main.Controls.Player.Jump.performed -= Jump;
+        
+    }
+
     void Update()
     {
-        hInput = Input.GetAxisRaw("Horizontal");
         Rotate();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(Physics2D.Raycast(transform.localPosition, Vector2.down, transform.localScale.y + 0.5f,main.filter))
-            {
-                
-                main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            }
-        }
-        main.Anim.SetBool(Running,hInput != 0);
+        main.Anim.SetBool(Running, moveInput.x != 0);
         
+    }
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        if(Physics2D.Raycast(transform.localPosition, Vector2.down, transform.localScale.y + 0.5f,main.filter))
+        {
+                
+            main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     private void Rotate()
     {
-        if (hInput > 0)
+        if (moveInput.x> 0)
         {
             transform.eulerAngles = Vector3.zero;
         }
-        else if (hInput < 0 && transform.eulerAngles.y == 0)
+        else if (moveInput.x < 0 && transform.eulerAngles.y == 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
@@ -46,7 +71,7 @@ public class PlayerMovementSystem : PlayerSystem
 
     private void FixedUpdate()
     {
-        main.Rb.AddForce(new Vector2(hInput,0)*movementForce,ForceMode2D.Force);
+        main.Rb.AddForce(new Vector2(moveInput.x,0)*movementForce,ForceMode2D.Force);
     }
     
     
