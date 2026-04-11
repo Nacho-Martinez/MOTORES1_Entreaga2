@@ -14,7 +14,7 @@ public class ZombieAI : EnemySystem
    [SerializeField] private float patrolSpeed = 1.2f;
    [SerializeField] private float patrolRadius = 3f;
    [SerializeField] private float changeDirDistance = 0.3f;
-   [SerializeField] private float maxPatrolTime = 10f;
+   [SerializeField] private float maxPatrolTime = 4f;
    
    private Vector2 currentPatrolPoint;
    private Transform objective;

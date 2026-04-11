@@ -7,7 +7,9 @@ namespace Managers
     {
         public static EventManager Instance { get; private set; }
         //Preparo el evento para que cuando se lance, lance dos floats
-        public event Action <float,float> OnPlayerDamage; 
+        public event Action <float,float> OnPlayerDamage;
+        public event Action OnNpcDead;
+        public event Action OnEndMission;
    
    
         private void Awake()
@@ -26,6 +28,15 @@ namespace Managers
         public void PlayerDamage(float currentHealth, float maxHealth)
         {
             OnPlayerDamage?.Invoke(currentHealth,maxHealth);
+        }
+
+        public void NpcDie()
+        {
+            OnNpcDead?.Invoke();
+        }
+        public void EndMission()
+        {
+            OnEndMission?.Invoke();
         }
     }
 }

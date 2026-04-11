@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &120860769576352319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4849237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4849237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4849237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557772862046074257, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682909696795353973, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: visionAngle
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682909696795353973, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: visionRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335416280888499963, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_Name
+      value: ZombieForPool Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335416280888499963, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835478293560397216, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1946397
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835478293560397216, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_Size.y
+      value: 3.186337
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835478293560397216, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.1256116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835478293560397216, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.043559313
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}

@@ -1,4 +1,5 @@
 ﻿using System;
+using Npc;
 using Player;
 using UnityEngine;
 
@@ -39,12 +40,25 @@ namespace Enemy
 
         private void Attack(GameObject victim)
         {
+            
             main.Anim.SetTrigger(Attack1);
             PlayerHealthSystem enemy = victim.GetComponent<PlayerHealthSystem>();
+            if (enemy == null)
+            {
+               
+                NPCHealthSystem npc = victim.GetComponent<NPCHealthSystem>();
+                if (npc != null)
+                { 
+                    
+                    npc.TakeDamage(damage);
+                }
+            }
+   
             if (enemy != null)
             { 
                 enemy.TakeDamage(damage);
             }
+            
             attackCoolDown = attackSpeed;
         }
     }

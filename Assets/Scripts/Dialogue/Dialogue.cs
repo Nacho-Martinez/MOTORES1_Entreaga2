@@ -9,8 +9,8 @@ public class Dialogue : MonoBehaviour
     public static Dialogue Instance { get;  private set; }
     public bool IsDialogueActive { get; private set; } = false;
     
-    [SerializeField] private TextMeshProUGUI textComponent;
-    [SerializeField] string[] lines;
+    [SerializeField] protected TextMeshProUGUI textComponent;
+    [SerializeField] protected string[] lines;
     [SerializeField]private float textSpeed;
     private int index;
     public Action onDialogueComplete;
@@ -93,7 +93,7 @@ public class Dialogue : MonoBehaviour
         
     }
 
-   public void NextLine()
+   public virtual void NextLine()
     {
         if (index < lines.Length - 1)
         {

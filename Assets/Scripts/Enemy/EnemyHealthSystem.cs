@@ -21,7 +21,7 @@ namespace Enemy
             rb = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
         }
-        // ReSharper disable Unity.PerformanceAnalysis
+        
         public override void TakeDamage(float damage)
         {
             base.TakeDamage(damage);

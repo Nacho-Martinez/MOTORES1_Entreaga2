@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivateAndAssingDialogue : MonoBehaviour
 {
-    [SerializeField] private Dialogue dialogue;
+    [SerializeField] protected Dialogue dialogue;
     [SerializeField] private string[] npcLines;
     [SerializeField] private GameObject[] zombies;
     private bool hasBennActive = false;

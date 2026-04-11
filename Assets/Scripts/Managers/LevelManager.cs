@@ -5,12 +5,14 @@ namespace Managers
 {
     public class LevelManager : MonoBehaviour
     {
-        private MyInputActions controls;
-
-        private void Awake()
+        private void OnEnable()
         {
-            controls = new MyInputActions();
-            controls.Ui.Disable();
+            EventManager.Instance.OnNpcDead += EndLevel;
+        }
+
+        private void EndLevel()
+        {
+            Debug.Log("Se ha perdido este nivel");
         }
     }
 }
