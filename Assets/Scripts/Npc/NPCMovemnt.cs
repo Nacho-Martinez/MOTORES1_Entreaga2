@@ -44,6 +44,7 @@ namespace Npc
                 anim.SetBool(Running,false);
                 yield return new WaitForSeconds(Random.Range(0.5f, 1.75f));
                 currentIndex = (currentIndex + 1) % patrolPosition.Count;
+                anim.SetBool(Running,true);
             }
         }
 

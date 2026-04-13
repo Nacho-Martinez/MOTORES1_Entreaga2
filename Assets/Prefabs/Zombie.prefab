@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4557772862046074257
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c5ca838095473d9a9f36ad64835636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyHealthSystem
-  maxHealth: 10
+  maxHealth: 3
+  dieSound: {fileID: 8300000, guid: 0cdfb966a0fa0cc44b2bbae2e68fd9c0, type: 3}
 --- !u!114 &5553159447958786422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d561c4d635d4ca7a81cc712b50326da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyMain
+  <AttackSound>k__BackingField: {fileID: 8300000, guid: 3b3215771d69d7d44999a0b7c17575c0, type: 3}
+  <ShoutSound>k__BackingField: {fileID: 8300000, guid: 3eebb1c5607308245ac2f323bf22bb06, type: 3}
   <sightModulo>k__BackingField: {fileID: 5682909696795353973}
 --- !u!61 &7835478293560397216
 BoxCollider2D:

@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class DialogueAndTp : ActivateAndAssingDialogue
 
         private void Tp()
         {
+            GameData.Instance.Advancelevel();
             SceneManager.LoadScene(levelTP);
         }
 

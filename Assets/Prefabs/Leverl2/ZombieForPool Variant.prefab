@@ -92,8 +92,31 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.043559313
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 373705710469610402, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7335416280888499963, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7758123926646090963}
   m_SourcePrefab: {fileID: 100100000, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+--- !u!1 &7233273603705873604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7335416280888499963, guid: 5c25e4a6f097a5949b440f0b1ebf6060, type: 3}
+  m_PrefabInstance: {fileID: 120860769576352319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7758123926646090963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233273603705873604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa953b4d9aab470ba15fd00f0fdf6adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStuf.ZombieHealthWithPoolLogic
+  maxHealth: 5
+  dieSound: {fileID: 8300000, guid: 0cdfb966a0fa0cc44b2bbae2e68fd9c0, type: 3}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Managers;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -91,6 +92,7 @@ namespace Player
         private void Shoot()
         {
             main.Anim.SetTrigger(Shooting);
+            AudioManager.AudioInstance.PlaySoud(main.ShootSound);
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mousePos - transform.position).normalized;
 

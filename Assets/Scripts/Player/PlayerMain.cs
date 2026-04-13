@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class PlayerMain : MonoBehaviour
 {
-    
+    [Header("SFX")]
+    [field: SerializeField] public AudioClip JumpSound { get; private set; }
+    [field: SerializeField] public AudioClip ShootSound { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public Animator Anim { get; private set; }
     [field: SerializeField] public LayerMask filter { get; private set; }

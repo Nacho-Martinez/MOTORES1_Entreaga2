@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Enemy
 {
     public class EnemyHealthSystem : CharacterHealthSystem
     {
+        [SerializeField]private AudioClip dieSound;
         private static readonly int Dead = Animator.StringToHash("dead");
         private ZombieAI AI;
         private EnemyAttackSystem attackSystem;
@@ -37,6 +39,7 @@ namespace Enemy
         
         private IEnumerator WaitingForDead()
         {
+            AudioManager.AudioInstance.PlaySoud(dieSound);
             anim.SetBool(Dead,true);
             yield return new WaitForSeconds(0.5f);
             Destroy(gameObject);

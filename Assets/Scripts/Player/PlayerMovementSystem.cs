@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -52,7 +53,7 @@ public class PlayerMovementSystem : PlayerSystem
     {
         if(Physics2D.Raycast(transform.localPosition, Vector2.down, transform.localScale.y + 0.5f,main.filter))
         {
-                
+            AudioManager.AudioInstance.PlaySoud(main.JumpSound);
             main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }

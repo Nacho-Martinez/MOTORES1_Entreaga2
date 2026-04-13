@@ -11,7 +11,7 @@ namespace LevelStuf
         [Header("Config")] 
         
         [SerializeField] private Transform[] spawnPoints;
-        [SerializeField] private float spawnInterval = 2f;
+        [SerializeField] private float spawnInterval = 6f;
         
         private float timer = 0f;
         private int activeSpawnPoints = 1;
@@ -33,12 +33,12 @@ namespace LevelStuf
 
                 if (timer > 120f)
                 {
-                    spawnInterval = 5;
+                    spawnInterval = 15f;
                     activeSpawnPoints = 3;
                 }
                 else if (timer > 60f)
                 {
-                    spawnInterval = 4;
+                    spawnInterval = 10f;
                     activeSpawnPoints = 2;
                     
                 } 

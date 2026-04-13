@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using Npc;
 using Player;
 using UnityEngine;
@@ -43,6 +44,7 @@ namespace Enemy
             
             main.Anim.SetTrigger(Attack1);
             PlayerHealthSystem enemy = victim.GetComponent<PlayerHealthSystem>();
+            AudioManager.AudioInstance.PlaySoud(main.AttackSound);
             if (enemy == null)
             {
                

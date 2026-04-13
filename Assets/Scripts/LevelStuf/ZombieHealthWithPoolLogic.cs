@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Enemy;
+using Managers;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -9,7 +10,7 @@ namespace LevelStuf
 {
     public class ZombieHealthWithPoolLogic : CharacterHealthSystem
     {
-        
+        [SerializeField]private AudioClip dieSound;
         private static readonly int Dead = Animator.StringToHash("dead");
         private ZombieAI AI;
         private EnemyAttackSystem attackSystem;
@@ -51,6 +52,7 @@ namespace LevelStuf
         }
         private IEnumerator WaitingForDead()
         {
+            AudioManager.AudioInstance.PlaySoud(dieSound);
             anim.SetBool(Dead,true);
             yield return new WaitForSeconds(0.5f);
             Die();

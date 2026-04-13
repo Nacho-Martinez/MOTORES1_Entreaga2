@@ -1,5 +1,6 @@
 using System;
 using Enemy;
+using Managers;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;

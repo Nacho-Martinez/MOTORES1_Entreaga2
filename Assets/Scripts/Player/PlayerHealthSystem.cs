@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using Managers;
+using Menu;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
     public class PlayerHealthSystem : CharacterHealthSystem
     {
+        [SerializeField] private AudioClip DamageSound;
         private static readonly int Dead = Animator.StringToHash("Dead");
         private PlayerMovementSystem movement;
         private PlayerAttackSystem attack;
@@ -20,6 +23,7 @@ namespace Player
         public override void TakeDamage(float damage)
         {
             base.TakeDamage(damage);
+            AudioManager.AudioInstance.PlaySoud(DamageSound);
             EventManager.Instance.PlayerDamage(currentHealth,maxHealth);
             
             if (currentHealth <= 0)
@@ -27,6 +31,8 @@ namespace Player
                 movement.enabled = false;
                 attack.enabled = false;
                 StartCoroutine(WaitingForDead());
+                SceneManager.LoadScene("MainMenu");
+                MenuManager.Instance.ShowLoseMenu();
             }
         }
         

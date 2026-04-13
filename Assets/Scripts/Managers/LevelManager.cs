@@ -1,5 +1,7 @@
 ﻿using System;
+using Menu;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -12,7 +14,8 @@ namespace Managers
 
         private void EndLevel()
         {
-            Debug.Log("Se ha perdido este nivel");
+            SceneManager.LoadScene("MainMenu");
+            MenuManager.Instance.ShowLoseMenu();
         }
     }
 }

@@ -5,6 +5,9 @@ namespace Enemy
 {
     public class EnemyMain : MonoBehaviour
     {
+        [Header("SFX")]
+        [field: SerializeField] public AudioClip AttackSound { get; private set; }
+        
         [field: SerializeField] public BaseSightSense sightModulo { get; private set; }
         public Animator Anim { get; private set; }
         public Rigidbody2D Rb { get; private set; }

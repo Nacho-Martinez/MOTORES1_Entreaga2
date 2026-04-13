@@ -1,7 +1,9 @@
 ﻿using System;
 using Managers;
+using Menu;
 using Npc;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelStuf
 {
@@ -18,11 +20,14 @@ namespace LevelStuf
                 {
                     rb.linearVelocity = Vector2.zero; 
                     rb.angularVelocity = 0f;          
-                    rb.bodyType = RigidbodyType2D.Kinematic; 
+                    rb.bodyType = RigidbodyType2D.Kinematic;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
                 }
                 base.OnTriggerEnter2D(other);
                 npc.tag = "Untagged";
                 npc.layer = 0;
+                
             }
 
 
@@ -36,6 +41,8 @@ namespace LevelStuf
         private void LastDialogue()
         {
             dialogue.StartDialogue(endMisionLines);
+            SceneManager.LoadScene("MainMenu");
+            MenuManager.Instance.ShowLoseMenu();
             
             //Mostramos la pantalla de victoria 
         }
