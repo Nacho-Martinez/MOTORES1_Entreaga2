@@ -27,18 +27,18 @@ namespace LevelStuf
         {
             if (end)
                 return;
-            if (timer < 180)
+            if (timer < 60)
             {
                 timer += Time.deltaTime;
 
-                if (timer > 120f)
-                {
-                    spawnInterval = 15f;
-                    activeSpawnPoints = 3;
-                }
-                else if (timer > 60f)
+                if (timer > 25f)
                 {
                     spawnInterval = 10f;
+                    activeSpawnPoints = 3;
+                }
+                else if (timer > 40f)
+                {
+                    spawnInterval = 17f;
                     activeSpawnPoints = 2;
                     
                 } 
@@ -46,6 +46,7 @@ namespace LevelStuf
             }
             else
             {
+                end = true;
                 EventManager.Instance.EndMission();
             }
         }
@@ -60,6 +61,7 @@ namespace LevelStuf
                 {
                     GameObject zombie = PoolManager.Instance.MyZombiePool.Get();
                     zombie.transform.position = spawnPoints[i].position;
+                    zombie.transform.rotation = new Quaternion(0,0,0,0);
 
                 }
                 yield return new WaitForSeconds(spawnInterval);

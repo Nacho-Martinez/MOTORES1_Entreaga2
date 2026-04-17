@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using Managers;
 using Menu;
 using Npc;
@@ -15,6 +16,7 @@ namespace LevelStuf
         {
             if (other.TryGetComponent(out NPCMovemnt movement))
             {
+                movement.StopAllMovementCorrutines();
                 movement.enabled = false;
                 if (other.TryGetComponent(out Rigidbody2D rb))
                 {
@@ -28,6 +30,7 @@ namespace LevelStuf
                 npc.tag = "Untagged";
                 npc.layer = 0;
                 
+                
             }
 
 
@@ -38,13 +41,21 @@ namespace LevelStuf
             EventManager.Instance.OnEndMission += LastDialogue;
         }
 
+        private void OnDisable()
+        {
+            EventManager.Instance.OnEndMission -= LastDialogue;
+        }
+
+        private void EndMenu()
+        {
+        }
+
         private void LastDialogue()
         {
             dialogue.StartDialogue(endMisionLines);
             SceneManager.LoadScene("MainMenu");
-            MenuManager.Instance.ShowLoseMenu();
+            MenuManager.Instance.ShowWinMenu();
             
-            //Mostramos la pantalla de victoria 
         }
     }
 }

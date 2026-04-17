@@ -1050,7 +1050,7 @@ MonoBehaviour:
   npcLines:
   - Has demostrado unas habilidades extraordinarias en el entrenamiento
   - Preparate porque nos vamos a la primera mision
-  - Debereas entrar en el helicoptero para ir a la mision
+  - Deberas entrar en el helicoptero para ir a la mision
   zombies: []
   levelTP: Level1
 --- !u!1001 &548883924

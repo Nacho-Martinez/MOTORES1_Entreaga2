@@ -21,6 +21,7 @@ namespace LevelStuf
             {
                 zombie.SetActive(true);
             }
+            gameObject.SetActive(false);
         }
     }
 }

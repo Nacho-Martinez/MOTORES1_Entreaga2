@@ -31,10 +31,7 @@ namespace DefaultNamespace
             {
               actualLevel++;
             }
-            else
-            {
-                Debug.Log("Se ha salido de la lista de niveles Tenmos problemas ");
-            }
+            
         }
     }
 }

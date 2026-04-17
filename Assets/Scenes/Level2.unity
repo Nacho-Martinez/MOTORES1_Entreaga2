@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 73642940}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.5, y: -2, z: -10}
+  m_LocalPosition: {x: -29.83, y: 1.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,8 +325,8 @@ MonoBehaviour:
   npcLines:
   - "!Menos mal que has llegado\xA1"
   - "Necesitamos que escoltes a nuestro compa\xF1ero hasta el comandante"
-  - Hemos conseguido recopilar informacion vital para acaabr con la infeccion zombie
-    y necesitamos comunicarselo al mundo
+  - "Hemos conseguido recopilar informaci\xF3n vital para acabar con la infeccion
+    zombie y necesitamos comunicarselo al mundo"
   - "Ten cuidado los zombies de este lugar se han adaptado y son capazces de escalar
     \xE1rboles"
   - Que no te sorprendan saltando desde las alturas
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bd3e353dc74bb194d175cb0d12066d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Npc.NPCMovemnt
-  patrolSpeed: 0.5
+  patrolSpeed: 1
   patrolPath: {fileID: 1802081495}
 --- !u!114 &486893085
 MonoBehaviour:
@@ -892,7 +892,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.38777378, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -902,7 +902,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.08, y: 2.56}
+  m_Size: {x: 1.3044524, y: 2.56}
   m_EdgeRadius: 0
 --- !u!50 &486893090
 Rigidbody2D:
@@ -1091,11 +1091,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270667606395321997, guid: 5f6a246f574cd91429e77794a25d2b95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.72
+      value: -24.89
       objectReference: {fileID: 0}
     - target: {fileID: 1270667606395321997, guid: 5f6a246f574cd91429e77794a25d2b95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.23
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1270667606395321997, guid: 5f6a246f574cd91429e77794a25d2b95, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1176,12 +1176,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1145025662851804686, guid: ff1de90e66752ff41a3f76b18645a015, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6273205
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145025662851804686, guid: ff1de90e66752ff41a3f76b18645a015, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.52422386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145025662851804686, guid: ff1de90e66752ff41a3f76b18645a015, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.88053
+      value: -28.27
       objectReference: {fileID: 0}
     - target: {fileID: 1145025662851804686, guid: ff1de90e66752ff41a3f76b18645a015, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.32005
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 1145025662851804686, guid: ff1de90e66752ff41a3f76b18645a015, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2937,7 +2945,7 @@ MonoBehaviour:
   dialogue: {fileID: 2089388357}
   npcLines:
   - "Gracias por traer la informaci\xF3n"
-  - Necesito tres minutos para mandarla a la base
+  - Necesito un minuto para mandarla a la base
   - Cubreme de los zombies
   zombies: []
   endMisionLines:
@@ -16546,6 +16554,10 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4108722038865705980, guid: 29da54f4b2aa2ed408e1f5000979c45d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.744629
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -16810,11 +16822,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266718804632913658, guid: 90d5cff617c3f984cbd1fd7b3a16fed4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.5
+      value: -29.83
       objectReference: {fileID: 0}
     - target: {fileID: 8266718804632913658, guid: 90d5cff617c3f984cbd1fd7b3a16fed4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 8266718804632913658, guid: 90d5cff617c3f984cbd1fd7b3a16fed4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18694,7 +18706,7 @@ Transform:
   m_GameObject: {fileID: 2014184858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.5, y: -2, z: -10}
+  m_LocalPosition: {x: -29.83, y: 1.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

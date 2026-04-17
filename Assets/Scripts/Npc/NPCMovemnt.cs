@@ -64,5 +64,11 @@ namespace Npc
         {
             currentDestitnation = patrolPosition[currentIndex];
         }
+
+        public void StopAllMovementCorrutines()
+        {
+            anim.SetBool(Running,false);
+            StopAllCoroutines();
+        }
     }
 }
